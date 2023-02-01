@@ -1,0 +1,17 @@
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.csproj.AssemblyReference.cache
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.AssemblyInfoInputs.cache
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.AssemblyInfo.cs
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.csproj.CoreCompileInputs.cache
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Data.deps.json
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Data.dll
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Data.pdb
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Models.dll
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Models.pdb
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.csproj.CopyComplete
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.dll
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\refint\ProjectX_Data.dll
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ProjectX_Data.pdb
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\obj\Debug\net7.0\ref\ProjectX_Data.dll
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Utility.dll
+C:\Users\gopni\source\repos\ProjectX\ProjectX_Data\bin\Debug\net7.0\ProjectX_Utility.pdb

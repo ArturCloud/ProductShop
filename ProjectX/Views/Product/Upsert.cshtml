@@ -1,0 +1,143 @@
+﻿@using ProjectX_Models.ViewModels
+@model ProductViewModel
+
+@{
+    var title = "Create Product";  // title value for pages
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data"> <!-- enctype is needed for uplodaing files-->
+    @if (Model.ProductsVM.Id != 0)
+    {
+        title = "Edit Product";
+        <input asp-for="ProductsVM.Id" hidden />
+    }
+
+   
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div> 
+        <div class="form-group row">
+            <h2 class="text-info pb-5">@title</h2>
+        </div>
+
+
+        <div class="row">
+            <div class="col-8">
+                <div class="mb-3 row">
+                    <div class="col-4">
+                        <label asp-for="ProductsVM.Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ProductsVM.Name" class="form-control" />
+                        <span asp-validation-for="ProductsVM.Name" class="text-danger"></span>  
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <div class="col-4">
+                        <label asp-for="ProductsVM.Price"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ProductsVM.Price" class="form-control" />
+                        <span asp-validation-for="ProductsVM.Price" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <div class="col-4">
+                        <label asp-for="ProductsVM.ShortDescription"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ProductsVM.ShortDescription" class="form-control" />
+                        <span asp-validation-for="ProductsVM.ShortDescription" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <div class="col-4">
+                        <label asp-for="ProductsVM.Description"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="ProductsVM.Description" class="form-control summernote"></textarea> <!-- summernote in the code-->
+                        <span asp-validation-for="ProductsVM.Description" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-4 row">
+                    <div class="col-4">
+                       Image
+                    </div>
+                    <div class="col-8">
+                        <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+                    </div>
+                </div>
+                
+                <div class="mb-4 row">
+                    <div class="col-4">
+                        <label asp-for="ProductsVM.CategoryId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="ProductsVM.CategoryId" asp-items="@Model.CategoriesVM" class="form-select">
+                            <option selected>--Select Category--</option>
+                        </select>
+                        <span asp-validation-for="ProductsVM.CategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            @if (Model.ProductsVM.Id != 0)
+                            {
+                                <input type="submit" class="btn btn-info w-100" value="Update" />
+                            }
+                            else
+                            {
+                                <input type="submit"  onclick="return validateInput()" class="btn btn-info w-100" value="Create" />
+                            }
+
+                        </div>
+
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-dark w-100">Back</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-4">
+                @if(Model.ProductsVM.Id != 0)
+                {
+                    <img src="@WebConstant.ImagePath@Model.ProductsVM.Image" width="100" style="border-radius:5px; border:1px solid #bbb" />
+                }
+                
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"></partial>
+    }
+    <script>
+        $(document).ready(function() {
+        $('.summernote').summernote({
+            height:250
+        });
+       });
+        function validateInput(){
+            if(document.getElementById("uploadBox").value == ""){
+                Swal.fire(
+                    'Error!',
+                    'Please upload an Image',
+                    'error'
+                )
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

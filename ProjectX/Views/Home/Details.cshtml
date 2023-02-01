@@ -1,0 +1,77 @@
+﻿@using ProjectX_Models.ViewModels
+@model DetailsViewModel
+
+<div class="">
+    <form method="post">
+
+        <div class="container backgroundWhite pt-4">
+            <div class="card" style="border:1px solid #000000; ">
+                <div class="card-header bg-dark text-light m-lg-0 row container" style="border-radius: 0px; ">
+                    <div class="col-12 col-md-6">
+                        <h1 class="text-white">@Model.ProductsDVM.Name</h1>
+                    </div>
+                    <div class="col-12 col-md-6 text-md-end">
+                        <h1 class="text-warning">@((Model.ProductsDVM.Price).ToString("c"))</h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="container rounded p-2">
+                        <div class="row">
+                            <div class="col-12 col-lg-4 p-1 text-center">
+                                <img src="@WebConstant.ImagePath@Model.ProductsDVM.Image" width="100" class="rounded" />
+                            </div>
+                            <div class="col-12 col-lg-8">
+                                <div class="row p-3">
+                                    <div class="col-12">
+                                        <span class="badge p-3 border text-black" style="background-color:lavenderblush">@Model.ProductsDVM.Category.Name</span>
+                                        @*<span class="badge p-3 border text-black" style="background-color:azure">ApplicationType.Name</span>*@
+                                        <h3 class="text-success"></h3>
+
+                                        <p class="text-secondary">@Html.Raw(Model.ProductsDVM.Description)</p>
+                                    </div>
+                                    @if (User.IsInRole(WebConstant.AdminRole))
+                                    {
+                                        <div class="col-12">Sqft:</div>
+                                        <div class="col-12">
+                                            @if (Model.IsInCart)
+                                            {
+                                                <input asp-for="@Model.ProductsDVM.TempSqft" disabled class="form-control"/>
+                                            }
+                                            else
+                                            {
+                                                <input asp-for="@Model.ProductsDVM.TempSqft" class="form-control" />
+                                            }
+                                            <span asp-validation-for="@Model.ProductsDVM.TempSqft" class="text-danger"></span>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-dark">
+                    <div class="row">
+                        <div class="col-12 col-md-6 pb-1">
+                            <a asp-action="Index" class="btn btn-success btn-square form-control btn-lg" style="height:50px;">Back to List</a>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            @if(Model.IsInCart)
+                            {
+                              <a asp-action="RemoveFromCart" asp-route-id="@Model.ProductsDVM.Id" class="btn btn-warning btn-square form-control btn-lg" style="height:50px;">Remove from Cart</a>
+                            }
+                            else
+                            {
+                               <button type="submit" class="btn-info form-control btn-lg" style="height:50px;">Add to Cart</button> 
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
